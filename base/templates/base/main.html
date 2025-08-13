@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>To-Do Tasks</title>
+        <meta name="'description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+        <style>
+            body {
+                background-color: #fff;
+                font-family: 'Raleway', sans-serif;
+                padding : 50px;
+            }
+
+            h1, h2, h3, h4, h5 {
+                font-family:'Ubuntu', sans-serif;
+                color: #333;
+            }
+
+
+            a, p{
+                font-family: 'Ubuntu', sans-serif;
+                color: #555;
+            }
+
+
+
+            .container {
+                max-width: 550px;
+                margin: auto;
+                background-color: #fff;
+                -webkit-box-shadow: 2px 2px  13px -4px rgba(0, 0, 0, 0.21);
+                box-shadow : 2px 2px  13px -4px rgba(0, 0, 0, 0.21);
+            }
+
+
+            .header-bar {
+                padding: 10px;
+                display: flex;
+                color: bisque;
+                justify-content: space-between;
+                border-radius: 5px 5px 0 0;
+                background : linear-gradient(90deg, #f0efe9 0%, #d6cb9d 43%, #d4cc96 70%);
+            }
+
+            .header-bar a{
+                color : rgb(244, 244, 244);
+                text-decoration : none;
+            }
+
+
+
+            .task-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                border-top: 1px solid #e2e3c6;
+                background-color: #f8f8f8;
+            }
+
+
+            .task-title {
+                display: flex;
+            }
+
+            .task-title a{
+                text-decoration: none;
+                color: #333;
+                margin-left: 10px;
+            }
+
+
+            .task-complete-icon {
+                width: 20px;
+                height: 20px;
+                background-color: #4caf50;
+                border-radius: 50%;
+                
+            }
+
+
+
+
+            .task-incomplete-icon {
+                width: 20px;
+                height: 20px;
+                background-color: #c3acaa;
+                border-radius: 50%;
+            }
+
+
+            .delete-link {
+                text-decoration: none;
+                color: #ff0000;
+                text-decoration: none;
+                font-weight: 900;
+                font-size: 22px;
+            }
+
+
+            .add-link {
+                color :#ff0000 ;
+                text-decoration: none;
+                font-size: 42px;
+                text-shadow : 1px 1px #a10d0d
+
+            }
+
+
+
+            input[type=text],
+            input[type=password],
+            textarea{
+                width: 90%;
+                padding: 10px;
+                border: 1px solid #c4c05b;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+
+
+            .button {
+                background-color: #ccd57a;
+                color: white;
+                border: 1px solid #c0bc6e;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .card-body {
+                padding: 20px;
+
+            }
+
+
+
+        </style>
+
+
+    </head>
+    <body>
+
+        <div class="container">
+            {% block content %}
+
+
+            {% endblock content %}
+
+        </div>
+
+    </body>
+ </html>

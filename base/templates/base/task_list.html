@@ -1,39 +1,76 @@
+{% extends 'base/main.html' %}
+{% block content %}
 
-{% if request.user.is_authenticated %}
-<p>{{ request.user }}</p>
+<div class="header-bar">
+    <div >
+            <h1 style="margin-left: 186px;">Your Flow</h1>
+            <h3  style="margin-left: 136px;">You're Getting Things Done!</h3>
+            <h4 style="margin-left: 155px;">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s" }}</h4>
+    </div>
+    {% if request.user.is_authenticated %}
 
-<form action="{% url 'logout' %}" method="post" style="display:inline;">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
+    <form action="{% url 'logout' %}" method="post" style="display:inline; margin-top:170px;">
+        {% csrf_token %}
+        <button type="submit" 
+            style="
+             background-color: #d6cb9d; 
+             color: #000; 
+             padding: 10px 20px; 
+             border: none; 
+             border-radius: 6px; 
+             cursor: pointer; 
+             font-size: 16px; 
+             font-weight: bold;
+             transition: background-color 0.3s ease;
+        "
+            onmouseover="this.style.backgroundColor='#c0b585'"
+            onmouseout="this.style.backgroundColor='#d6cb9d'">
+            Logout
+        </button>
+    </form>
 
-{% else %}
-<a href="{% url 'login' %}">Login</a>
-{% endif %}
+
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+
+
+</div>
 
 
 
-<hr> 
-
-<h1> To-Do List {{color}}</h1>
 
 
-<a href ="{% url 'task-create' %}">Add Task</a>
 
-<table>
-    <tr>
-        <th>Item</th>
-        <th></th>
-        <th></th>
-    </tr>
+<!--<a href ="{% url 'task-create' %}">Add Task</a>-->
+
+<div class = "task-items-wrapper">
     {% for task in tasks %}
-    <tr>
-        <td>{{task.title}}</td>  
-        <td><a href= "{% url 'task' task.id %}">View</a></td>
-        <td><a href= "{% url 'task-update' task.id %}">Update</a></td>
-        <td><a href= "{% url 'task-delete' task.id %}">Delete</a></td>
-    </tr>
+    <div class ="task-wrapper">
+        {% if task.Complete %}
+        <div class ="task-title">
+            <div class = "task-complete-icon"></div>
+            <i><s><a href="{% url 'task-update' task.id %}">{{task}}</a></s></i>
+        </div>
+        <a class = "delete-link" href= "{% url 'task-delete' task.id %}">&#215;</a>
+
+        {% else %}
+        <div class ="task-title">
+            <div class = "task-incomplete-icon"></div>
+            <a href="{% url 'task-update' task.id %}">{{task}}</a>
+        </div>
+        <a class = "delete-link" href= "{% url 'task-delete' task.id %}">&#215;</a>
+        {% endif %}
+        
+    </div>
+
+
     {% empty %}
     <h3>No items in list</h3>
     {% endfor %}
-</table>
+
+
+</div>
+
+
+{% endblock content %}

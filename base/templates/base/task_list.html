@@ -20,8 +20,8 @@
              border-radius: 6px; 
              cursor: pointer; 
              font-size: 16px; 
-             font-weight: bold;
-             transition: background-color 0.3s ease;
+             font-weight: semibold;
+             
         "
             onmouseover="this.style.backgroundColor='#c0b585'"
             onmouseout="this.style.backgroundColor='#d6cb9d'">
@@ -41,8 +41,31 @@
 
 
 
+<style>
+#id-link {
+    display: inline-block;
+    background-color: #b2b068; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 447px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#id-link:hover {
+    background-color: #7d8035; 
+}
+</style>
 
-<!--<a href ="{% url 'task-create' %}">Add Task</a>-->
+<div>
+    <a  id="id-link" href="{% url 'task-create' %}">Add Task</a>
+</div>
+
+
 
 <div class = "task-items-wrapper">
     {% for task in tasks %}

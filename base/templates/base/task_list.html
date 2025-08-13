@@ -68,17 +68,17 @@
 
 
 
-<h3 style="margin-left: 220px;">Your Flow</h3>
+<h3 style="margin-left: 224px; align-content: center;">Your Flow</h3>
 {% if tasks|length == 0 %}
     <h3 style="margin-bottom:20px ; margin-left: 196px; ">No tasks to show</h3>
-    <div style ="margin-bottom: 10px;" class="progress todo"></div>  
+    <div class="progress todo"></div>  
 
 {% elif count == 0 %}
     <h3 style="margin-bottom:20px ; margin-left: 180px;">All tasks completed</h3>  
     <div class="progress done"></div>
 
 {% elif count == tasks|length %}
-    <h3 style="margin-bottom:20px ; margin-left: 256px; padding-bottom: 30px;">To do</h3>
+    <h3 style="margin-bottom:20px ; margin-left: 246px; padding-bottom: 30px; align-content: center;">To do</h3>
     <div class="progress todo"></div> 
 
 {% elif count < tasks|length %}

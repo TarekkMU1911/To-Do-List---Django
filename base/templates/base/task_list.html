@@ -3,9 +3,8 @@
 
 <div class="header-bar">
     <div >
-            <h1 style="margin-left: 186px;">Your Flow</h1>
-            <h3  style="margin-left: 136px;">You're Getting Things Done!</h3>
-            <h4 style="margin-left: 155px;">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s" }}</h4>
+            <h2  style="margin-left: 125px; font-size: 23px;">You're Getting Things Done!</h2>
+            <h4 style="margin-left: 165px;">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s" }}</h4>
     </div>
     {% if request.user.is_authenticated %}
 
@@ -67,6 +66,28 @@
 
 
 
+
+
+<h3 style="margin-left: 220px;">Your Flow</h3>
+{% if tasks|length == 0 %}
+    <h3 style="margin-bottom:20px ; margin-left: 196px; ">No tasks to show</h3>
+    <div style ="margin-bottom: 10px;" class="progress todo"></div>  
+
+{% elif count == 0 %}
+    <h3 style="margin-bottom:20px ; margin-left: 180px;">All tasks completed</h3>  
+    <div class="progress done"></div>
+
+{% elif count == tasks|length %}
+    <h3 style="margin-bottom:20px ; margin-left: 256px; padding-bottom: 30px;">To do</h3>
+    <div class="progress todo"></div> 
+
+{% elif count < tasks|length %}
+    <h3 style="margin-bottom:20px ; margin-left: 185px;">In Progress to do</h3>
+    <div class="progress in-progress"></div>  
+{% endif %}
+
+
+
 <div class = "task-items-wrapper">
     {% for task in tasks %}
     <div class ="task-wrapper">
@@ -89,7 +110,6 @@
 
 
     {% empty %}
-    <h3>No items in list</h3>
     {% endfor %}
 
 

@@ -37,8 +37,8 @@
             .container {
                 max-width: 550px;
                 margin: auto;
-                padding: 0.1px;
-                border-radius: 10px;
+                padding: 0px;
+                border-radius: 12px  12px 12px 12px;
                 background-color: #ffffff;
                 -webkit-box-shadow: 2px 2px  13px -4px rgba(108, 107, 104, 0.934);
                 box-shadow : 2px 2px  13px -4pxr gba(108, 107, 104, 0.934);
@@ -50,7 +50,7 @@
                 display: flex;
                 color: bisque;
                 justify-content: space-between;
-                border-radius: 5px 5px 0 0;
+                border-radius: 12px 12px 0 0px;
                 background : linear-gradient(90deg, #f0efe9 0%, #d6cb9d 43%, #d4cc96 70%);
             }
 
@@ -145,6 +145,30 @@
                 padding: 30px;
 
             }
+
+
+            .progress {
+                width: 450px;
+                height: 5px;
+                border-radius: 5px;
+                margin: 20px auto;
+                background-color: grey;
+            }
+
+            .progress.todo {
+
+                background: rgb(133, 133, 133);  
+    
+            }
+
+            .progress.in-progress {
+                 background: linear-gradient(to right, rgb(135, 170, 79) 50%, grey 50%);
+                }
+
+            .progress.done {
+                 
+                 background: rgb(135, 170, 79);;
+        }
 
 
 
